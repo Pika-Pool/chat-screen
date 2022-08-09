@@ -17,7 +17,7 @@ export default function App() {
 				</div>
 
 				<div className={styles.new_connections_container}>
-					{connectionUsers.map(({ username, avatarSrc }, index) => (
+					{connectionUsers.map(({ username, avatarSrc }) => (
 						<div className={styles.connection} key={username}>
 							<Avatar src={avatarSrc} alt={`${username}'s avatar`} />
 							<small>{username}</small>

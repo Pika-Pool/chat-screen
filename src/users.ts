@@ -114,7 +114,7 @@ const users: ConnectionUser[] = [
 	username: user.username + i,
 	isIncognito: Math.floor(Math.random() * 2) === 1,
 	latestMessage: { text: user.latestMessage, time: new Date() },
-	avatarSrc: avatars[i % 13],
+	avatarSrc: avatars[i % avatars.length]!,
 	numOfUnreadMessages: Math.floor(Math.random() * 4),
 }));
 

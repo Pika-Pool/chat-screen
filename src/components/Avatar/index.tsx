@@ -1,5 +1,5 @@
 import classNames from 'classnames';
-import { type ImgHTMLAttributes } from 'react';
+import type { ImgHTMLAttributes } from 'react';
 import styles from './Avatar.module.css';
 
 export default function Avatar(imgProps: ImgHTMLAttributes<HTMLImageElement>) {

@@ -1,6 +1,6 @@
 import { useMemo, useState } from 'react';
 import { FaSearch } from 'react-icons/fa';
-import { ConnectionUser } from '../../users';
+import type { ConnectionUser } from '../../users';
 import Avatar from '../Avatar';
 import Badge from '../Badge';
 import styles from './MessagesSection.module.css';
