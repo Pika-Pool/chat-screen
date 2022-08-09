@@ -15,9 +15,19 @@ export default function MessagesSection({ users }: MessagesSectionProps) {
 	const usersToRender = useMemo(
 		() =>
 			// searches in both user and username
-			users.filter(user =>
-				new RegExp(`.*${searchInput}.*`, 'gi').test(user.username + user.name),
-			),
+			users
+				.filter(user =>
+					new RegExp(`.*${searchInput}.*`, 'gi').test(
+						user.username + user.name,
+					),
+				)
+				.sort((u1, u2) => {
+					const t1 = u1.latestMessage.time;
+					const t2 = u1.latestMessage.time;
+
+					if (t1 !== t2) return t2.getTime() - t1.getTime();
+					return u2.numOfUnreadMessages - u1.numOfUnreadMessages;
+				}),
 		[searchInput, users],
 	);
 
@@ -68,7 +78,7 @@ export default function MessagesSection({ users }: MessagesSectionProps) {
 
 								<div>
 									<p>{latestMessage?.text}</p>
-									{(numOfUnreadMessages || 0) > 0 && (
+									{numOfUnreadMessages > 0 && (
 										<Badge variant='primary' text={`${numOfUnreadMessages}`} />
 									)}
 								</div>

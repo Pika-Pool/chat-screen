@@ -8,8 +8,8 @@ export interface ConnectionUser {
 	username: string;
 	avatarSrc: string;
 	isIncognito?: boolean;
-	latestMessage?: Message;
-	numOfUnreadMessages?: number;
+	latestMessage: Message;
+	numOfUnreadMessages: number;
 }
 
 export const avatars: ConnectionUser['avatarSrc'][] = [
