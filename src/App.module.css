@@ -1,0 +1,35 @@
+.app {
+	max-width: 350px;
+	margin: auto;
+	/* margin-top: 1rem; */
+
+	background-color: hsl(var(--clr-primary));
+}
+
+.app > section {
+	padding: 0.75rem;
+}
+
+.header {
+	display: flex;
+	gap: 0.75rem;
+	margin-bottom: 1rem;
+}
+
+.new_connections_container {
+	display: flex;
+	flex-direction: row;
+	gap: 1.5rem;
+
+	overflow-x: scroll;
+
+	color: hsl(var(--clr-text-secondary));
+}
+
+.connection {
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+	align-items: center;
+	gap: 0.75rem;
+}

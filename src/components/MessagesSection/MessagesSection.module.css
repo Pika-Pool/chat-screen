@@ -1,0 +1,79 @@
+.messages_container {
+	border-top-left-radius: 1.5rem;
+	border-top-right-radius: 1.5rem;
+
+	background-color: hsl(var(--clr-white));
+}
+
+.messages_container__header {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+
+	margin-bottom: 1rem;
+}
+
+.search_bar {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	gap: 0.5rem;
+
+	font-size: small;
+
+	max-width: 10rem;
+	padding: 0.5em 0.75em;
+
+	border-radius: 999px;
+	background-color: hsl(var(--clr-black) / 0.03);
+}
+
+.search_bar input {
+	width: 100%;
+	outline: none;
+	border: 0;
+	background-color: transparent;
+}
+
+.message_blocks_container {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: flex-start;
+}
+
+.message_block {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	gap: 0.75rem;
+
+	width: 100%;
+	padding: 0.5rem 0;
+}
+
+.message_block:not(:last-of-type) {
+	border-bottom: 1px solid hsl(var(--clr-text-secondary));
+}
+
+.message_block__avatar_container {
+	padding: 0.25rem;
+}
+
+.message_block__content {
+	width: 100%;
+}
+
+.message_block__content > div {
+	display: flex;
+	justify-content: space-between;
+	align-items: baseline;
+}
+
+.message_block__content :where(p, time) {
+	font-size: small;
+}
+
+.message_block__content time {
+	color: hsl(var(--clr-text-secondary));
+}
