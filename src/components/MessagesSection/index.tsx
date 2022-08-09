@@ -1,3 +1,4 @@
+import { useMemo, useState } from 'react';
 import { FaSearch } from 'react-icons/fa';
 import { ConnectionUser } from '../../users';
 import Avatar from '../Avatar';
@@ -9,6 +10,17 @@ export interface MessagesSectionProps {
 }
 
 export default function MessagesSection({ users }: MessagesSectionProps) {
+	const [searchInput, setSearchInput] = useState('');
+
+	const usersToRender = useMemo(
+		() =>
+			// searches in both user and username
+			users.filter(user =>
+				new RegExp(`.*${searchInput}.*`, 'gi').test(user.username + user.name),
+			),
+		[searchInput, users],
+	);
+
 	return (
 		<section className={styles.messages_container}>
 			<div className={styles.messages_container__header}>
@@ -19,12 +31,19 @@ export default function MessagesSection({ users }: MessagesSectionProps) {
 
 				<label htmlFor='search' className={styles.search_bar}>
 					<FaSearch />
-					<input id='search' type='text' name='search' placeholder='Search' />
+					<input
+						id='search'
+						type='text'
+						name='search'
+						placeholder='Search'
+						value={searchInput}
+						onChange={e => setSearchInput(e.target.value)}
+					/>
 				</label>
 			</div>
 
 			<main className={styles.message_blocks_container}>
-				{users.map(
+				{usersToRender.map(
 					({
 						avatarSrc,
 						username,
